@@ -69,3 +69,26 @@ new Swiper('.promotion .swiper-container', {
     nextEl: '.promotion .swiper-next'
   }
 });
+
+const promotionEl = document.querySelector('.promotion');
+const promotionToggleBtn = document.querySelector('.toggle-promotion');
+let isHidePromotion = false;
+promotionToggleBtn.addEventListener('click', function(){
+  isHidePromotion = !isHidePromotion
+  if (isHidePromotion) {
+    promotionEl.classList.add('hide');
+  } else {
+    promotionEl.classList.remove('hide');
+  }
+});
+
+function floatingObject(selector) {
+  gsap.to(selector, 1, {
+    y: 20,
+    repeat: -1, // 무한반복
+    yoyo: true,
+    case: Power1.easeInOut,
+    delay: 1
+  });
+} 
+floatingObject('.floating');
